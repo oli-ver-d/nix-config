@@ -79,4 +79,20 @@
     userEmail = "oliver.d.333@proton.me";
     userName = "Oliver Dennis";
   };
+
+  programs.kitty = {
+    enable = true;
+    settings = {
+      font_size = "15.0";
+      window_padding_width = "5.0";
+      margin_width = "5.0";
+      background_opacity = "0.7";
+    };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    options = [ "--cmd cd" ];
+  };
 }

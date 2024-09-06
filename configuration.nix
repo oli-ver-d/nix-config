@@ -112,9 +112,7 @@
     gnome-terminal
     vim 
     fastfetch
-    zoxide
     wget
-    kitty
     vscode
     rustup
     python3
