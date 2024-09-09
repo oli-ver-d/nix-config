@@ -82,6 +82,7 @@
 
   programs.kitty = {
     enable = true;
+    font.name = "Noto Nerd Font";
     settings = {
       font_size = "15.0";
       window_padding_width = "5.0";
@@ -94,5 +95,9 @@
     enable = true;
     enableBashIntegration = true;
     options = [ "--cmd cd" ];
+  };
+
+  programs.neovim = {
+    enable = true;
   };
 }

@@ -124,6 +124,7 @@
     libreoffice
     hunspell
     hunspellDicts.en_GB-ise
+    nerdfonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
