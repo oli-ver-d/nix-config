@@ -115,6 +115,7 @@
     wget
     vscode
     rustup
+    gcc11
     python3
     ripgrep
     bat
@@ -125,6 +126,9 @@
     hunspell
     hunspellDicts.en_GB-ise
     nerdfonts
+    unzip
+    zip
+    signal-desktop
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

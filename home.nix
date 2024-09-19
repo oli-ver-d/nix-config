@@ -49,6 +49,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".test_dot".text = ''
+      Hello world
+      do you read me
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -73,6 +77,21 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.bash.enable = true;
+  
+  programs.bash.shellAliases = {
+    sourcebash = "source ~/.bashrc";
+    la = "ls -a";
+    jq = "jaq";
+    fzv = "vim \$(fzf)";
+    ssc = "kitten ssh hitec@192.168.1.146";
+    nixbuild = "sudo nixos-rebuild switch --flake .#default";
+  };
+
+  programs.bash.initExtra = ''
+    eval "$(zoxide init bash --cmd cd)"
+  '';
   
   programs.git = {
     enable = true;
@@ -85,8 +104,8 @@
     font.name = "Noto Nerd Font";
     settings = {
       font_size = "15.0";
-      window_padding_width = "5.0";
-      margin_width = "5.0";
+      window_padding_width = "0.0";
+      margin_width = "0.0";
       background_opacity = "0.7";
     };
   };
