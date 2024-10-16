@@ -50,7 +50,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.core-utilities.enable = false;
+  services.gnome.core-utilities.enable = true;
+  services.flatpak.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -109,7 +110,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    gnome-terminal
+    mullvad-browser
     vim 
     fastfetch
     wget
@@ -129,6 +130,20 @@
     unzip
     zip
     signal-desktop
+    bitwarden-desktop
+    dolphin-emu
+    tor-browser
+    spotify
+    gpt4all
+    zotero
+    jdk
+    font-awesome
+    adwaita-icon-theme
+    papirus-icon-theme
+    jdk8
+    calibre
+    wl-clipboard
+    lua
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
