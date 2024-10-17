@@ -35,7 +35,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
+  programs.home-manager.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -49,10 +49,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".test_dot".text = ''
-      Hello world
-      do you read me
-    '';
+    ".config/nvim".source = "${config.home.homeDirectory}/dotfiles/nvchad/starter";
   };
 
   # Home Manager can also manage your environment variables through
@@ -76,7 +73,7 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  
 
   programs.bash.enable = true;
   
@@ -87,7 +84,7 @@
     fzv = "vim \$(fzf)";
     ssc = "kitten ssh -p 2222 hitec@192.168.1.146";
     ssp = "kitten ssh hitec@plutonium";
-    nixbuild = "sudo nixos-rebuild switch --flake .#default";
+    nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
   };
@@ -123,4 +120,5 @@
   programs.neovim = {
     enable = true;
   };
+
 }

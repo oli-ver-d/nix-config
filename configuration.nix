@@ -143,7 +143,7 @@
     jdk8
     calibre
     wl-clipboard
-    lua
+    luajit 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
