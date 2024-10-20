@@ -144,6 +144,7 @@
     calibre
     wl-clipboard
     luajit 
+    gnumake
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

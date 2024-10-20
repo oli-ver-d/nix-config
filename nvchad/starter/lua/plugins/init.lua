@@ -36,6 +36,11 @@ return {
               default_workspace = "notes",
             },
           },
+          ["core.summary"] = {
+            config = {
+              strategy = "default",
+            },
+          },
         },
       }
 
