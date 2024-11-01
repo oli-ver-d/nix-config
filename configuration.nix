@@ -104,8 +104,14 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.steam.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -145,6 +151,8 @@
     wl-clipboard
     luajit 
     gnumake
+    nodejs_20
+    jetbrains.rust-rover
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -82,8 +82,7 @@
     la = "ls -a";
     jq = "jaq";
     fzv = "vim \$(fzf)";
-    ssc = "kitten ssh -p 2222 hitec@192.168.1.146";
-    ssp = "kitten ssh hitec@plutonium";
+    ssa = "kitten ssh john@192.168.1.158";
     nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
@@ -92,6 +91,7 @@
   programs.bash.initExtra = ''
     eval "$(zoxide init bash --cmd cd)"
     export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/hitec/.local/share/flatpak/exports/share
+    export PATH=$PATH:/home/hitec/.cargo/bin
   '';
   
   programs.git = {
