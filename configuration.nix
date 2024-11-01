@@ -101,6 +101,19 @@
     };
   };
 
+  # auto upgrades
+  system.autoUpgrade = {
+    enable = true;
+    flake = inputs.self.outPath;
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "-L"
+    ];
+    dates = "09:00";
+    randomizedDelaySec = "45min";
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -108,6 +121,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Allow random installs
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
 
