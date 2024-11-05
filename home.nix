@@ -17,7 +17,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,6 +34,10 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    wlr-randr
+    wayland-utils
+    rofi-wayland
+    tofi
   ];
   programs.home-manager.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -50,6 +54,7 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".config/nvim".source = "${config.home.homeDirectory}/dotfiles/nvchad/starter";
+    ".config/tofi.ini".source = "${config.home.homeDirectory}/dotfiles/tofi.ini";
   };
 
   # Home Manager can also manage your environment variables through
@@ -102,7 +107,7 @@
 
   programs.kitty = {
     enable = true;
-    font.name = "Noto Nerd Font";
+    font.name = "Hack Nerd Font";
     settings = {
       font_size = "15.0";
       window_padding_width = "0.0";
