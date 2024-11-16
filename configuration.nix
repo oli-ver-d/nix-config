@@ -15,6 +15,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelParams = [
+    "loglevel=3"
+  ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -49,7 +53,29 @@
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+
+  programs.sway = {
+    enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  hardware = {
+    graphics.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
   services.flatpak.enable = true;
 
   # Configure keymap in X11
@@ -100,18 +126,7 @@
     };
   };
 
-  # auto upgrades
-  system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L"
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-  };
+  home-manager.backupFileExtension = "backup";
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -128,6 +143,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
   environment.systemPackages = with pkgs; [
     mullvad-browser
     vim 
@@ -145,7 +165,6 @@
     libreoffice
     hunspell
     hunspellDicts.en_GB-ise
-    nerdfonts
     unzip
     zip
     signal-desktop
@@ -165,6 +184,23 @@
     nodejs_20
     jetbrains.rust-rover
     thunderbird
+    lsd
+    pamixer
+    ydotool
+    rofi-rbw-wayland
+    rbw
+    pinentry-tty
+    waybar
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      })
+    )
+    mako
+    swww
+    networkmanagerapplet
+    kdePackages.qtwayland
+    kdePackages.qtsvg
+    kdePackages.dolphin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

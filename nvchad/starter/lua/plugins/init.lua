@@ -48,8 +48,15 @@ return {
       vim.wo.conceallevel = 2
     end,
   },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^5', -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+
   -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
+  -- -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
   -- 		ensure_installed = {
   -- 			"vim", "lua", "vimdoc",
