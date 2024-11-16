@@ -50,9 +50,11 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  qt.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
 
   programs.sway = {
     enable = true;
@@ -201,6 +203,8 @@
     kdePackages.qtwayland
     kdePackages.qtsvg
     kdePackages.dolphin
+    libsForQt5.qt5.qtquickcontrols2
+    where-is-my-sddm-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
