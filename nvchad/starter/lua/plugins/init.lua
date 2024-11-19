@@ -55,6 +55,11 @@ return {
     lazy = false, -- This plugin is already lazy
   },
 
+  {
+    "3rd/image.nvim",
+    opts = {}
+  }
+
   -- {
   -- -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {

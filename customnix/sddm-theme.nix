@@ -7,10 +7,11 @@ pkgs.stdenv.mkDerivation {
     owner = "stepanzubkov";
     repo = "where-is-my-sddm-theme";
     rev = "f9a49dd80c8a30967b77ed784eb2312a02fabcf1";
-    hash = "1g91vqrmwprh2cch6fhwm2ma9j1agb7y1am1pax3mf3ampw3srll";
+    sha256 = "PMQ2geMSE8H0K3HtvaowzJfS+k0mHSAQeJ9A5G9+rLY=";
   };
   installPhase = ''
     mkdir -p $out
     cp -R ./where_is_my_sddm_theme_qt5/* $out/
+    cp ./where_is_my_sddm_theme_qt5/example_configs/grey.conf $out/theme.conf
   '';
 }

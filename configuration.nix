@@ -54,7 +54,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "${import ./sddm-theme.nix { inherit pkgs; }}";
+  services.displayManager.sddm.theme = "${import .customnix/sddm-theme.nix { inherit pkgs; }}";
 
   programs.sway = {
     enable = true;
@@ -204,6 +204,7 @@
     kdePackages.qtsvg
     kdePackages.dolphin
     libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
     where-is-my-sddm-theme
   ];
 
