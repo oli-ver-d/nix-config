@@ -99,6 +99,7 @@
     export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/hitec/.local/share/flatpak/exports/share
     export PATH=$PATH:/home/hitec/.cargo/bin
     nvim() { kitty @ set-spacing padding=0; command nvim "$@"; kitty @ set-spacing padding=10; }
+    cda() { cd "$(active-cd)"; }
   '';
   
   programs.git = {
