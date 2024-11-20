@@ -54,7 +54,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "${import .customnix/sddm-theme.nix { inherit pkgs; }}";
+  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix { inherit pkgs; }}";
 
   programs.sway = {
     enable = true;
