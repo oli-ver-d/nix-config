@@ -205,7 +205,10 @@
     kdePackages.dolphin
     libsForQt5.qt5.qtquickcontrols2
     libsForQt5.qt5.qtgraphicaleffects
-    where-is-my-sddm-theme
+    pavucontrol
+    playerctl
+    xorg.xcursorthemes
+    hyprlock
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
