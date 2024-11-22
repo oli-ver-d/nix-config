@@ -2,13 +2,8 @@
   background: none;
 }
 #waybar.top > box.horizontal {
+  padding: 1pt;
   background: #11111b;
-  /*background: rgba(11, 11, 11, 0.5);*/
-  box-shadow: 0 0 4pt #11111b;
-  /*box-shadow: 0 0 0pt #11111b;*/
-  border-radius: 12pt;
-  margin: 6pt;
-  padding: 2pt;
 }
 
 #custom-rofi {
@@ -137,7 +132,7 @@
 #custom-power {
   color: rgb(171, 22, 22);
   margin-right: 11pt;
-  font-size: 10pt;
+  font-size: 12pt;
 }
 
 * {
