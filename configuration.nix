@@ -189,8 +189,6 @@
     lsd
     pamixer
     ydotool
-    rofi-rbw-wayland
-    rbw
     pinentry-tty
     waybar
     (waybar.overrideAttrs (oldAttrs: {
@@ -209,6 +207,8 @@
     playerctl
     xorg.xcursorthemes
     hyprlock
+    swayidle
+    quickemu
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

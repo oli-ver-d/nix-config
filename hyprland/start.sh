@@ -2,7 +2,7 @@
 
 swww init &
 swww img ~/dotfiles/gluee.png &
-
+swayidle -w &
 nm-applet --indicator &
 
 waybar &

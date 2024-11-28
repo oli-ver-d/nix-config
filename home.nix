@@ -57,6 +57,7 @@
     ".config/mako/config".source = "${config.home.homeDirectory}/dotfiles/mako/config";
     ".config/hypr".source = "${config.home.homeDirectory}/dotfiles/hyprland";
     ".config/waybar".source = "${config.home.homeDirectory}/dotfiles/waybar";
+    ".config/swayidle".source = "${config.home.homeDirectory}/dotfiles/swayidle";
   };
 
   # Home Manager can also manage your environment variables through
@@ -93,6 +94,7 @@
     nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
+    tb = "~/dotfiles/kitty_background.sh";
   };
 
   programs.bash.initExtra = ''
@@ -115,8 +117,9 @@
       font_size = "12.0";
       window_padding_width = "10.0 10.0";
       margin_width = "0.0";
-      background_opacity = "0.3";
+      background_opacity = "0.5";
       allow_remote_control = "yes";
+      dynamic_background_opacity = "yes";
     };
   };
 
