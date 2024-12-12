@@ -209,6 +209,12 @@
     hyprlock
     swayidle
     quickemu
+    brave
+    googleearth-pro
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "googleearth-pro-7.3.6.9796"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
