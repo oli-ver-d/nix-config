@@ -1,3 +1,0 @@
-timeout 300 'hyprlock'
-timeout 360 'hyprctl dispatch dmps off' resume 'hyprctl dispatch dpms on'
-before-sleep 'hyprlock'

@@ -207,8 +207,8 @@
     playerctl
     xorg.xcursorthemes
     hyprlock
-    swayidle
     quickemu
+    hypridle
     brave
     googleearth-pro
   ];

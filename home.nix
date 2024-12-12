@@ -57,7 +57,6 @@
     ".config/mako/config".source = "${config.home.homeDirectory}/dotfiles/mako/config";
     ".config/hypr".source = "${config.home.homeDirectory}/dotfiles/hyprland";
     ".config/waybar".source = "${config.home.homeDirectory}/dotfiles/waybar";
-    ".config/swayidle".source = "${config.home.homeDirectory}/dotfiles/swayidle";
   };
 
   # Home Manager can also manage your environment variables through
