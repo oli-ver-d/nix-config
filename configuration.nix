@@ -52,13 +52,14 @@
   services.xserver.enable = true;
   qt.enable = true;
 
-  # Enable the GNOME Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix { inherit pkgs; }}";
-
-  programs.sway = {
-    enable = true;
+  services.displayManager.sddm.settings = {
+    General = {
+      DefaultSession = "hyprland.desktop";
+    };
   };
+
+  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix { inherit pkgs; }}";
 
   programs.hyprland = {
     enable = true;
@@ -93,7 +94,7 @@
   services.printing.enable = false;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -147,7 +148,7 @@
   # $ nix search wget
 
   fonts.packages = with pkgs; [
-    nerdfonts
+    nerd-fonts.hack
   ];
 
   environment.systemPackages = with pkgs; [
@@ -211,6 +212,7 @@
     hypridle
     brave
     googleearth-pro
+    starsector
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

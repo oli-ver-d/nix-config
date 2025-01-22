@@ -35,6 +35,7 @@ return {
             config = {
               workspaces = {
                 notes = "~/notes",
+                learning = "~/Documents/Learning",
               },
               default_workspace = "notes",
             },

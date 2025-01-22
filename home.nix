@@ -37,6 +37,7 @@
     wlr-randr
     wayland-utils
     rofi-wayland
+    vbam
   ];
   programs.home-manager.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
