@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation {
     owner = "oli-ver-d";
     repo = "where-is-my-sddm-theme";
     rev = "92812814749d30d2159e3e00e5de5a96d2725d1f";
-    sha256 = "PMQ2geMSE8H0K3HtvaowzJfS+k0mHSAQeJ9A5G9+rLY=";
+    sha256 = "sha256-gIJ8aD3Olpg/3oRzk4Ifz9saE4N4rRFZgD1o+lnuoag=";
   };
   installPhase = ''
     mkdir -p $out
