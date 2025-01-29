@@ -53,7 +53,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/nvim".source = "${config.home.homeDirectory}/dotfiles/nvchad/starter";
+    # ".config/nvim".source = "${config.home.homeDirectory}/dotfiles/nvchad/starter";
     ".config/rofi/config.rasi".source = "${config.home.homeDirectory}/dotfiles/rofi/config.rasi";
     ".config/mako/config".source = "${config.home.homeDirectory}/dotfiles/mako/config";
     ".config/hypr".source = "${config.home.homeDirectory}/dotfiles/hyprland";
@@ -131,8 +131,6 @@
 
   programs.neovim = {
     enable = true;
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
   };
 
 }
