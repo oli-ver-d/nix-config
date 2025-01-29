@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "hitec";
@@ -80,11 +82,24 @@
     # EDITOR = "emacs";
   };
 
-  # Let Home Manager install and manage itself.
-  
+  # theming
+  qt.enable = true;
+
+  qt.platformTheme.name = "kde";
+  qt.style.name = "adwaita-dark";
+  qt.style.package = pkgs.adwaita-qt;
+
+  gtk.enable = true;
+
+  gtk.cursorTheme.name = "Bibata-Modern-Ice";
+  gtk.cursorTheme.package = pkgs.bibata-cursors;
+  gtk.theme.name = "adw-gtk3-dark";
+  gtk.theme.package = pkgs.adw-gtk3;
+  gtk.iconTheme.name = "Adwaita";
+  gtk.iconTheme.package = pkgs.adwaita-icon-theme;
 
   programs.bash.enable = true;
-  
+
   programs.bash.shellAliases = {
     sourcebash = "source ~/.bashrc";
     la = "ls -a";
@@ -95,6 +110,8 @@
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
     tb = "~/dotfiles/kitty_background.sh";
+    cls = "clear";
+    ff = "fastfetch";
   };
 
   programs.bash.initExtra = ''
@@ -103,7 +120,7 @@
     nvim() { kitty @ set-spacing padding=0; command nvim "$@"; kitty @ set-spacing padding=10; }
     cda() { cd "$(active-cd)"; }
   '';
-  
+
   programs.git = {
     enable = true;
     userEmail = "oliver.d.333@proton.me";
@@ -126,7 +143,7 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
 
   programs.neovim = {
@@ -134,5 +151,4 @@
     extraLuaPackages = ps: [ps.magick];
     extraPackages = [pkgs.imagemagick];
   };
-
 }

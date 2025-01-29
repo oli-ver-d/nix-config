@@ -23,9 +23,7 @@ require("lazy").setup({
     import = "nvchad.plugins",
   },
   { import = "plugins" },
-},
-{ lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json" },
-lazy_config)
+}, { lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json" }, lazy_config)
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
@@ -37,3 +35,25 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+require("lspconfig").nixd.setup {
+  cmd = { "nixd" },
+  settings = {
+    nixd = {
+      nixpkgs = {
+        expr = "import <nixpkgs> { }",
+      },
+      formatting = {
+        command = { "alejandra" },
+      },
+      options = {
+        nixos = {
+          expr = '(builtins.getFlake "~/dotfiles/flake.nix").nixosConfigurations.default.options',
+        },
+        -- home_manager = {
+        --   expr = '(builtins.getFlake "~/dotfiles/flake.nix").homeConfigurations.default.options',
+        -- },
+      },
+    },
+  },
+}

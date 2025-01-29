@@ -1,15 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,7 +23,7 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -59,7 +61,7 @@
     };
   };
 
-  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix { inherit pkgs; }}";
+  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix {inherit pkgs;}}";
 
   programs.hyprland = {
     enable = true;
@@ -77,7 +79,7 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   services.flatpak.enable = true;
 
@@ -116,14 +118,14 @@
   users.users.hitec = {
     isNormalUser = true;
     description = "Hitec Splash";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "hitec" = import ./home.nix;
     };
@@ -141,7 +143,6 @@
   # Allow random installs
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
-
   ];
 
   # List packages installed in system profile. To search, run:
@@ -153,7 +154,7 @@
 
   environment.systemPackages = with pkgs; [
     mullvad-browser
-    vim 
+    vim
     fastfetch
     wget
     vscode
@@ -182,7 +183,7 @@
     jdk8
     calibre
     wl-clipboard
-    luajit 
+    luajit
     gnumake
     nodejs_20
     jetbrains.rust-rover
@@ -192,8 +193,9 @@
     ydotool
     pinentry-tty
     waybar
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    (
+      waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
       })
     )
     mako
@@ -212,8 +214,11 @@
     hypridle
     brave
     googleearth-pro
-    starsector
+    alejandra
+    nixd
   ];
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   nixpkgs.config.permittedInsecurePackages = [
     "googleearth-pro-7.3.6.9796"
@@ -245,5 +250,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
