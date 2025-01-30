@@ -3,7 +3,7 @@
 }
 #waybar.top > box.horizontal {
   padding: 1pt;
-  background: #11111b;
+  background: #1a1b26;
 }
 
 #custom-rofi {
@@ -13,6 +13,7 @@
 }
 
 #clock {
+  color: #c0caf5;
   margin-right: 10pt;
 }
 
@@ -20,16 +21,16 @@
   margin-left: 12pt;
 }
 #workspaces button {
-  color: #a2a5c9;
+  color: #7aa2f7;
 }
 #workspaces button:not(:first-child) {
   margin-left: 2pt;
 }
 #workspaces button.visible {
-  color: #89b4fa;
+  color: #7aa2f7;
 }
 #workspaces button.active {
-  color: #f38ba8;
+  color: #f7768e;
 }
 #workspaces button:hover, #workspaces button:focus {
   background: none;
@@ -37,12 +38,12 @@
   box-shadow: none;
 }
 #workspaces button:hover:not(.active):not(.visible), #workspaces button:focus:not(.active):not(.visible) {
-  color: #9399b2;
+  color: #545c7e;
 }
 
 #mpris {
-  background: #1e1e2e;
-  color: #a6e3a1;
+  background: #292e42;
+  color: #9ece6a;
   border-radius: 12pt;
   margin-left: 15pt;
   padding: 0 8pt;
@@ -51,15 +52,16 @@
 #window {
   margin-left: 15pt;
   margin-right: 20pt;
+  color: #c0caf5;
 }
 
 #memory {
-  color: #fab387;
+  color: #e0af68;
   margin-right: 12pt;
 }
 
 #cpu {
-  color: #927dff;
+  color: #bb9af7;
   margin-right: 12pt;
 }
 
@@ -89,12 +91,12 @@
 }
 
 #pulseaudio {
-  color: #74c7ec;
+  color: #7dcfff;
   margin-right: 10pt;
 }
 
 #battery {
-  color: #f9e2af;
+  color: #ff9e64;
   margin-right: 15pt;
 }
 
@@ -102,11 +104,11 @@
 #battery.good,
 #battery.charging,
 #battery.plugged {
-  color: #a6e3a1;
+  color: #9ece6a;
 }
 
 #battery.critical:not(.charging) {
-  color: #f38ba8;
+  color: #db4b4b;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -130,7 +132,7 @@
 }
 
 #custom-power {
-  color: rgb(171, 22, 22);
+  color: #db4b4b;
   margin-right: 11pt;
   font-size: 12pt;
 }
@@ -146,8 +148,8 @@
 }
 
 tooltip {
-  background: #11111b;
-  color: #cdd6f4;
+  background: #1a1b26;
+  color: #c0caf5;
   border-radius: 5pt;
 }
 
