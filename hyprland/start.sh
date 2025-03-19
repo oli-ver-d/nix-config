@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 swww init &
-swww img ~/dotfiles/gluee.png &
+swww img ~/dotfiles/wallpapers/storm.png &
 nm-applet --indicator &
 hypridle &
 waybar &

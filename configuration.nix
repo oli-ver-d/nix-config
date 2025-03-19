@@ -1,5 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
+# Edit this configuration file to define what should be installed on your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
@@ -51,10 +50,10 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
   qt.enable = true;
 
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.settings = {
     General = {
       DefaultSession = "hyprland.desktop";
@@ -78,16 +77,16 @@
     nvidia.modesetting.enable = true;
   };
 
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    open = false;  # Use proprietary drivers; set to true for open-source (if supported)
+    nvidiaSettings = true;  # Installs the NVIDIA settings application
+  };
+
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
   services.flatpak.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "gb";
-    variant = "";
-  };
 
   # Configure console keymap
   console.keyMap = "uk";
@@ -120,7 +119,7 @@
   users.users.hitec = {
     isNormalUser = true;
     description = "Hitec Splash";
-    extraGroups = ["networkmanager" "docker"];
+    extraGroups = ["networkmanager" "docker" "wheel"];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -137,7 +136,6 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-
   programs.steam.enable = true;
 
   # Allow unfree packages
@@ -218,6 +216,14 @@
     googleearth-pro
     alejandra
     nixd
+    brightnessctl
+    monero-gui
+    motrix
+    qbittorrent
+    (inputs.cbr-to-cbz.packages.${pkgs.system}.default)
+    komga
+    slurp
+    grim
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

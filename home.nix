@@ -40,6 +40,7 @@
     wayland-utils
     rofi-wayland
     vbam
+    nushell
   ];
   programs.home-manager.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -105,7 +106,6 @@
     la = "ls -a";
     jq = "jaq";
     fzv = "vim \$(fzf)";
-    ssa = "kitten ssh john@192.168.1.158";
     nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
@@ -134,7 +134,7 @@
       font_size = "12.0";
       window_padding_width = "10.0 10.0";
       margin_width = "0.0";
-      # background_opacity = "0.5";
+      background_opacity = "0.5";
       allow_remote_control = "yes";
       dynamic_background_opacity = "yes";
     };

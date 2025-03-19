@@ -1,4 +1,3 @@
 configuration {
   terminal: "kitty";
 }
-@theme "/nix/store/g4q0z58bp706d7b5zb6a7qxqgar5wx4y-rofi-1.7.5+wayland3/share/rofi/themes/DarkBlue.rasi"

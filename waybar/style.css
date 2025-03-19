@@ -3,7 +3,6 @@
 }
 #waybar.top > box.horizontal {
   padding: 1pt;
-  background: #1a1b26;
 }
 
 #custom-rofi {
@@ -21,7 +20,7 @@
   margin-left: 12pt;
 }
 #workspaces button {
-  color: #7aa2f7;
+  color: #545c7e;
 }
 #workspaces button:not(:first-child) {
   margin-left: 2pt;

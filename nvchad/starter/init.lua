@@ -29,6 +29,9 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+vim.opt.relativenumber = true
+vim.opt.number = true
+
 require "options"
 require "nvchad.autocmds"
 
