@@ -110,8 +110,6 @@
     #media-session.enable = true;
   };
 
-  virtualisation.docker.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -119,7 +117,7 @@
   users.users.hitec = {
     isNormalUser = true;
     description = "Hitec Splash";
-    extraGroups = ["networkmanager" "docker" "wheel"];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -211,6 +209,7 @@
     xorg.xcursorthemes
     hyprlock
     quickemu
+    qemu
     hypridle
     brave
     googleearth-pro
