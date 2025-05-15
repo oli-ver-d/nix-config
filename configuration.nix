@@ -113,6 +113,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hitec = {
     isNormalUser = true;
@@ -121,6 +123,7 @@
     packages = with pkgs; [
       #  thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager = {
@@ -174,7 +177,6 @@
     dolphin-emu
     tor-browser
     spotify
-    gpt4all
     zotero
     jdk
     font-awesome
@@ -212,12 +214,10 @@
     qemu
     hypridle
     brave
-    googleearth-pro
     alejandra
     nixd
     brightnessctl
     monero-gui
-    motrix
     qbittorrent
     (inputs.cbr-to-cbz.packages.${pkgs.system}.default)
     komga
@@ -228,7 +228,6 @@
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "googleearth-pro-7.3.6.9796"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
