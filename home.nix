@@ -41,6 +41,7 @@
     rofi-wayland
     vbam
     nushell
+    eza
   ];
   programs.home-manager.enable = true;
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -182,7 +183,7 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = [ "git" "eza" "rust" ];
       theme = "robbyrussell";
     };
   }; 

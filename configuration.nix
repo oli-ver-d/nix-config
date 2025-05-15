@@ -115,6 +115,9 @@
 
   programs.zsh.enable = true;
 
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hitec = {
     isNormalUser = true;
