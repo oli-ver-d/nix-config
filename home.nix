@@ -159,6 +159,32 @@
     enableCompletion = true;     
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      sourcebash = "source ~/.bashrc";
+      la = "ls -a";
+      jq = "jaq";
+      fzv = "vim \$(fzf)";
+      nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
+      shutdownh = "sudo shutdown -h now";
+      rebooth = "sudo reboot -h now";
+      tb = "~/dotfiles/kitty_background.sh";
+      cls = "clear";
+      ff = "fastfetch";
+    };
+
+    initContent = ''
+      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/hitec/.local/share/flatpak/exports/share
+      export PATH=$PATH:/home/hitec/.cargo/bin
+      nvim() { kitty @ set-spacing padding=0; command nvim "$@"; kitty @ set-spacing padding=10; }
+      hx() { kitty @ set-spacing padding=0; command hx "$@"; kitty @ set-spacing padding=10; }
+    '';
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
   }; 
 
   programs.helix = {
