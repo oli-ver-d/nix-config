@@ -165,13 +165,17 @@
       sourcebash = "source ~/.bashrc";
       la = "ls -a";
       jq = "jaq";
-      fzv = "vim \$(fzf)";
+      fzv = "hx \$(fzf)";
       nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
       shutdownh = "sudo shutdown -h now";
       rebooth = "sudo reboot -h now";
       tb = "~/dotfiles/kitty_background.sh";
       cls = "clear";
       ff = "fastfetch";
+      mc = "curl https://am.i.mullvad.net/connected";
+      sd = "systemctl poweroff";
+      rb = "systemctl reboot";
+      sl = "systemctl suspend";
     };
 
     initContent = ''
