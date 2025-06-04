@@ -169,7 +169,7 @@
     vscode
     rustup
     gcc11
-    python3
+    python313
     ripgrep
     bat
     fzf
@@ -199,7 +199,7 @@
     lsd
     pamixer
     ydotool
-    pinentry-tty
+    pinentry-all
     waybar
     (
       waybar.overrideAttrs (oldAttrs: {
@@ -226,11 +226,14 @@
     nixd
     brightnessctl
     monero-gui
+    monero-cli
     qbittorrent
     (inputs.cbr-to-cbz.packages.${pkgs.system}.default)
     komga
     slurp
     grim
+    vlc
+    kdePackages.kleopatra
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

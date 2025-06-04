@@ -8,7 +8,7 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "modules-left": ["hyprland/workspaces", "mpris"],
+    "modules-left": ["hyprland/workspaces", "mpris", "custom/xmr"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
       "cpu",
@@ -133,6 +133,13 @@
         "suspend": "systemctl suspend",
         "hibernate": "systemctl hibernate"
       }
+    },
+    "custom/xmr": {
+      "format" : "{}",
+      "return-type": "json",
+      "exec": "$HOME/dotfiles/scripts/monero_price.py",
+      "interval": 300,
+      "on-click": "firefox https://www.coingecko.com/en/coins/monero"
     }
   }
 ]

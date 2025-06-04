@@ -110,7 +110,7 @@
     nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
-    tb = "~/dotfiles/kitty_background.sh";
+    tb = "~/dotfiles/scripts/kitty_background.sh";
     cls = "clear";
     ff = "fastfetch";
   };
@@ -169,7 +169,7 @@
       nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
       shutdownh = "sudo shutdown -h now";
       rebooth = "sudo reboot -h now";
-      tb = "~/dotfiles/kitty_background.sh";
+      tb = "~/dotfiles/scripts/kitty_background.sh";
       cls = "clear";
       ff = "fastfetch";
       mc = "curl https://am.i.mullvad.net/connected";
