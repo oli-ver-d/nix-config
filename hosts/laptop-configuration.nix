@@ -8,7 +8,7 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./laptop-hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -137,7 +137,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "hitec" = import ./home.nix;
+      "hitec" = import ./laptop-home.nix;
     };
   };
 
