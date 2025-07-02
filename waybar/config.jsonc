@@ -8,7 +8,7 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "modules-left": ["hyprland/workspaces", "mpris", "custom/xmr"],
+    "modules-left": ["hyprland/workspaces", "mpris"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
       "cpu",

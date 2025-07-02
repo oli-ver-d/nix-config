@@ -234,6 +234,7 @@
     grim
     vlc
     kdePackages.kleopatra
+    obsidian
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
