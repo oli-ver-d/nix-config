@@ -77,17 +77,6 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware = {
-    graphics.enable = true;
-    nvidia.modesetting.enable = true;
-  };
-
-  hardware.nvidia = {
-    powerManagement.enable = true;
-    open = false;  # Use proprietary drivers; set to true for open-source (if supported)
-    nvidiaSettings = true;  # Installs the NVIDIA settings application
-  };
-
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
@@ -107,6 +96,25 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.extraConfig."99-disable-suspend" = {
+      "monitor.alsa.rules" = [
+        {
+          matches = [
+            {
+              "node.name" = "~alsa_input.*";
+            }
+            {
+              "node.name" = "~alsa_output.*";
+            }
+          ];
+          actions = {
+            update-props = {
+              "session.suspend-timeout-seconds" = 0;
+            };
+          };
+        }
+      ];
+    };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
