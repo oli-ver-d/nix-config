@@ -65,7 +65,7 @@
     };
   };
 
-  services.displayManager.sddm.theme = "${import ./customnix/sddm-theme.nix {inherit pkgs;}}";
+  services.displayManager.sddm.theme = "${import ../customnix/sddm-theme.nix {inherit pkgs;}}";
 
   programs.hyprland = {
     enable = true;

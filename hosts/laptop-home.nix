@@ -57,11 +57,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/nvim".source = ./nvchad/starter;
-    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
-    ".config/mako/config".source = ./mako/config;
-    ".config/hypr".source = ./hyprland;
-    ".config/waybar".source = ./waybar;
+    ".config/nvim".source = ../nvchad/starter;
+    ".config/rofi/config.rasi".source = ../rofi/config.rasi;
+    ".config/mako/config".source = ../mako/config;
+    ".config/hypr".source = ../hyprland;
+    ".config/waybar".source = ../waybar;
   };
 
   # Home Manager can also manage your environment variables through
@@ -107,7 +107,7 @@
     la = "ls -a";
     jq = "jaq";
     fzv = "vim \$(fzf)";
-    nixbuild = "sudo nixos-rebuild switch --flake .#default";
+    nixbuild = "sudo nixos-rebuild switch --flake .#laptop";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
     tb = "~/dotfiles/scripts/kitty_background.sh";
@@ -166,7 +166,7 @@
       la = "ls -a";
       jq = "jaq";
       fzv = "hx \$(fzf)";
-      nixbuild = "sudo nixos-rebuild switch --flake .#default";
+      nixbuild = "sudo nixos-rebuild switch --flake .#laptop";
       shutdownh = "sudo shutdown -h now";
       rebooth = "sudo reboot -h now";
       tb = "~/dotfiles/scripts/kitty_background.sh";
