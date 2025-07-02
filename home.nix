@@ -57,11 +57,11 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    ".config/nvim".source = "${config.home.homeDirectory}/dotfiles/nvchad/starter";
-    ".config/rofi/config.rasi".source = "${config.home.homeDirectory}/dotfiles/rofi/config.rasi";
-    ".config/mako/config".source = "${config.home.homeDirectory}/dotfiles/mako/config";
-    ".config/hypr".source = "${config.home.homeDirectory}/dotfiles/hyprland";
-    ".config/waybar".source = "${config.home.homeDirectory}/dotfiles/waybar";
+    ".config/nvim".source = ./nvchad/starter;
+    ".config/rofi/config.rasi".source = ./rofi/config.rasi;
+    ".config/mako/config".source = ./mako/config;
+    ".config/hypr".source = ./hyprland;
+    ".config/waybar".source = ./waybar;
   };
 
   # Home Manager can also manage your environment variables through
@@ -107,7 +107,7 @@
     la = "ls -a";
     jq = "jaq";
     fzv = "vim \$(fzf)";
-    nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
+    nixbuild = "sudo nixos-rebuild switch --flake .#default";
     shutdownh = "sudo shutdown -h now";
     rebooth = "sudo reboot -h now";
     tb = "~/dotfiles/scripts/kitty_background.sh";
@@ -166,7 +166,7 @@
       la = "ls -a";
       jq = "jaq";
       fzv = "hx \$(fzf)";
-      nixbuild = "sudo nixos-rebuild switch --impure --flake .#default";
+      nixbuild = "sudo nixos-rebuild switch --flake .#default";
       shutdownh = "sudo shutdown -h now";
       rebooth = "sudo reboot -h now";
       tb = "~/dotfiles/scripts/kitty_background.sh";
