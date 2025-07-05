@@ -243,6 +243,7 @@
     vlc
     kdePackages.kleopatra
     obsidian
+    mask
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
