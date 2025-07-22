@@ -2,16 +2,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "todo-cli";
-  version = "0.0.1";
+  version = "0.0.2";
 
   src = fetchFromGitHub {
     owner = "oli-ver-d";
     repo = pname;
-    rev = "d4dc83522f209bac2cd7103a934dfc6930d8b12e";
-    hash = "sha256-xLxFVo3vrqaXU0Rc4XgKbWuuF1fEI40ujdFBGT7U9RI=";
+    rev = "e829a88253255d2788203386647698451c2902c6";
+    hash = "sha256-3c9HOlWLwmX+jJ1g9yp4+P2gT8xJpb3M8GbjoAmPdCI=";
   };
 
-  cargoHash = "sha256-Oev0/2tcrFUG156A7EORqr24kgZF68nhiw7Odjg11hY=";
+  cargoHash = "sha256-liTYWnN8zA4BMSfLSDi7+ICiDZeKLe2XuaOT7Y9uENs=";
 
   meta = with lib; {
     description = "Cli todo list";

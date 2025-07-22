@@ -169,6 +169,10 @@
     nerd-fonts.hack
   ];
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    todo-cli = pkgs.callPackage ../customnix/todo-cli.nix { };
+  };
+
   environment.systemPackages = with pkgs; [
     mullvad-browser
     vim
@@ -176,7 +180,7 @@
     wget
     vscode
     rustup
-    gcc11
+    gcc # needed to rust to compile
     python313
     ripgrep
     bat
@@ -194,17 +198,12 @@
     tor-browser
     spotify
     zotero
-    jdk
     font-awesome
-    jdk8
     calibre
     wl-clipboard
     luajit
-    gnumake
-    nodejs_20
     jetbrains.rust-rover
     thunderbird
-    lsd
     pamixer
     ydotool
     pinentry-all
@@ -244,6 +243,7 @@
     kdePackages.kleopatra
     obsidian
     mask
+    todo-cli
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

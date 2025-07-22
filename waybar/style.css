@@ -2,7 +2,7 @@
   background: none;
 }
 #waybar.top > box.horizontal {
-  padding: 1pt;
+  padding: 0pt;
 }
 
 #custom-rofi {
@@ -41,7 +41,6 @@
 }
 
 #mpris {
-  background: #292e42;
   color: #9ece6a;
   border-radius: 12pt;
   margin-left: 15pt;
