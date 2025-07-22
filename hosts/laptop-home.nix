@@ -61,9 +61,11 @@
     ".config/mako/config".source = ../mako/config;
     ".config/hypr".source = ../hyprland;
     ".config/waybar".source = ../waybar;
-    ".config/rofi".source = builtins.fetchGit {
-      url = "https://github.com/oli-ver-d/rofi";
-      rev = "19515e1f8d0ad382a14b222c8474a458bd646fc9";
+    ".config/rofi".source = pkgs.fetchFromGitHub {
+      owner = "oli-ver-d";
+      repo = "rofi";
+      rev = "ed98f746757814da59061165515058dfd96d00aa";
+      hash = "sha256-zewiDsRS5PnvmI3HpRWP0jLNn0QEKieD3ifSOl0z6HA=";
     } + "/packed";
   };
 
