@@ -58,10 +58,13 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".config/nvim".source = ../nvchad/starter;
-    ".config/rofi/config.rasi".source = ../rofi/config.rasi;
     ".config/mako/config".source = ../mako/config;
     ".config/hypr".source = ../hyprland;
     ".config/waybar".source = ../waybar;
+    ".config/rofi".source = builtins.fetchGit {
+      url = "https://github.com/oli-ver-d/rofi";
+      rev = "19515e1f8d0ad382a14b222c8474a458bd646fc9";
+    } + "/packed";
   };
 
   # Home Manager can also manage your environment variables through
@@ -183,6 +186,7 @@
       export PATH=$PATH:/home/hitec/.cargo/bin
       nvim() { kitty @ set-spacing padding=0; command nvim "$@"; kitty @ set-spacing padding=10; }
       hx() { kitty @ set-spacing padding=0; command hx "$@"; kitty @ set-spacing padding=10; }
+      todo-cli ls
     '';
 
     oh-my-zsh = {
