@@ -1,6 +1,20 @@
 {...}: {
   programs.helix = {
     enable = true;
+    languages = {
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          file-types = ["nix"];
+          language-servers = ["nixd"];
+          formatter = {
+            command = "alejandra";
+          };
+        }
+      ];
+    };
+
     settings = {
       theme = "tokyonight";
       editor = {
