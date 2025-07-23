@@ -68,6 +68,12 @@
     };
   };
 
+  programs.neovim = {
+    enable = true;
+    extraLuaPackages = ps: [ps.magick];
+    extraPackages = [pkgs.imagemagick];
+  };
+
   programs.helix = {
     enable = true;
     settings = {

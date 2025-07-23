@@ -76,12 +76,6 @@
     themeFile = "tokyo_night_night";
   };
 
-  programs.neovim = {
-    enable = true;
-    extraLuaPackages = ps: [ps.magick];
-    extraPackages = [pkgs.imagemagick];
-  };
-
   programs.zsh = {
     shellAliases = {
       jq = "jaq";

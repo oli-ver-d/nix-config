@@ -6,11 +6,12 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../../common/base/default.nix
+    ../../common/base/default.nix
     inputs.home-manager.nixosModules.default
   ];
 
   wsl.enable = true;
+  wsl.defaultUser = "hitec";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -23,9 +24,5 @@
 
   home-manager.backupFileExtension = "backup";
 
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget
-  ];
+  system.stateVersion = "24.11";
 }

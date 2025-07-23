@@ -31,6 +31,7 @@
       modules = [
         ./hosts/wsl/configuration.nix
         inputs.home-manager.nixosModules.default
+        inputs.nixos-wsl.nixosModules.wsl
         # inputs.nixos-hardware.nixosModules.dell-xps-15-9510
         # inputs.nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
       ];
