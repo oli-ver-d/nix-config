@@ -64,8 +64,8 @@
     ".config/rofi".source = pkgs.fetchFromGitHub {
       owner = "oli-ver-d";
       repo = "rofi";
-      rev = "ed98f746757814da59061165515058dfd96d00aa";
-      hash = "sha256-zewiDsRS5PnvmI3HpRWP0jLNn0QEKieD3ifSOl0z6HA=";
+      rev = "7afb07a566ca888d6628544773a26f979f4692bc";
+      hash = "sha256-bjjG/k88dzB5quWJANZO6JmnxIwzhW+h/iNAZNKcL+k=";
     } + "/packed";
   };
 
