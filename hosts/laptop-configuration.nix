@@ -77,8 +77,21 @@
     NIXOS_OZONE_WL = "1";
   };
 
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware = {
+    graphics.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  hardware.nvidia = {
+    powerManagement.enable = true;
+    open = true; # Use proprietary drivers; set to true for open-source (if supported)
+    nvidiaSettings = true; # Installs the NVIDIA settings application
+  };
+
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal.xdgOpenUsePortal = true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
 
   services.flatpak.enable = true;
 
@@ -167,10 +180,15 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.hack
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    dejavu_fonts
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    todo-cli = pkgs.callPackage ../customnix/todo-cli.nix { };
+    todo-cli = pkgs.callPackage ../customnix/todo-cli.nix {};
   };
 
   environment.systemPackages = with pkgs; [
@@ -241,7 +259,6 @@
     grim
     vlc
     kdePackages.kleopatra
-    obsidian
     mask
     todo-cli
   ];
