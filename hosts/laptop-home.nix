@@ -44,6 +44,11 @@
     eza
   ];
   programs.home-manager.enable = true;
+  nixpkgs.config = {
+    allowBroken = true;
+    allowUnfree = true;
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -61,12 +66,14 @@
     ".config/mako/config".source = ../mako/config;
     ".config/hypr".source = ../hyprland;
     ".config/waybar".source = ../waybar;
-    ".config/rofi".source = pkgs.fetchFromGitHub {
-      owner = "oli-ver-d";
-      repo = "rofi";
-      rev = "7afb07a566ca888d6628544773a26f979f4692bc";
-      hash = "sha256-bjjG/k88dzB5quWJANZO6JmnxIwzhW+h/iNAZNKcL+k=";
-    } + "/packed";
+    ".config/rofi".source =
+      pkgs.fetchFromGitHub {
+        owner = "oli-ver-d";
+        repo = "rofi";
+        rev = "565ccfb4b27cbb435f307dc75c009b7b91311c4b";
+        hash = "sha256-RxLzLcwlOrW6Iv7ay4ftrT6wBE3Nw6oFEIMjX2o/uuk=";
+      }
+      + "/packed";
   };
 
   # Home Manager can also manage your environment variables through
@@ -162,7 +169,7 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;     
+    enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -193,10 +200,10 @@
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "eza" "rust" ];
+      plugins = ["git" "eza" "rust"];
       theme = "robbyrussell";
     };
-  }; 
+  };
 
   programs.helix = {
     enable = true;
@@ -213,4 +220,6 @@
       };
     };
   };
+
+  programs.obsidian.enable = true;
 }
