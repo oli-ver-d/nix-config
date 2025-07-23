@@ -3,6 +3,11 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./helix.nix
+    ./zsh.nix
+  ];
+
   home.username = "hitec";
   home.homeDirectory = "/home/hitec";
 
@@ -48,45 +53,10 @@
     options = ["--cmd cd"];
   };
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {
-      sourcebash = "source ~/.bashrc";
-      la = "ls -a";
-      cls = "clear";
-      ff = "fastfetch";
-    };
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git" "eza" "rust"];
-      theme = "robbyrussell";
-    };
-  };
-
   programs.neovim = {
     enable = true;
     extraLuaPackages = ps: [ps.magick];
     extraPackages = [pkgs.imagemagick];
   };
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "tokyonight";
-      editor = {
-        bufferline = "multiple";
-        inline-diagnostics = {
-          cursor-line = "hint";
-          other-lines = "hint";
-        };
-        cursor-shape.insert = "underline";
-        lsp.display-inlay-hints = true;
-      };
-    };
-  };
 }
