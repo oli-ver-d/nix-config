@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = {
@@ -16,10 +17,19 @@
     nixpkgs,
     ...
   } @ inputs: {
-    nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.xps = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./hosts/laptop-configuration.nix
+        ./hosts/xps/configuration.nix
+        inputs.home-manager.nixosModules.default
+        # inputs.nixos-hardware.nixosModules.dell-xps-15-9510
+        # inputs.nixos-hardware.nixosModules.dell-xps-15-9510-nvidia
+      ];
+    };
+    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/wsl/configuration.nix
         inputs.home-manager.nixosModules.default
         # inputs.nixos-hardware.nixosModules.dell-xps-15-9510
         # inputs.nixos-hardware.nixosModules.dell-xps-15-9510-nvidia

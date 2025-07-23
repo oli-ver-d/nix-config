@@ -2,16 +2,16 @@
 
 ## build [system]
 
-> Builds the system and switches to the new config (default laptop)
+> Builds the system and switches to the new config (default xps)
 
 ~~~zsh
 if [[ -z "$system" ]]; then
-  export system=laptop
+  export system=xps
 fi
 
 echo "Building $system"
 
-sudo nixos-rebuild switch --flake .#laptop
+sudo nixos-rebuild switch --flake .#$system
 ~~~
 
 ## update

@@ -8,7 +8,8 @@
 }: {
   imports = [
     # Include the results of the hardware scan.
-    ./laptop-hardware-configuration.nix
+    ./hardware-configuration.nix
+    ../../common/base/default.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -20,9 +21,8 @@
     "loglevel=3"
   ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "xps"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -36,24 +36,6 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   qt.enable = true;
 
@@ -65,7 +47,7 @@
     };
   };
 
-  services.displayManager.sddm.theme = "${import ../customnix/sddm-theme.nix {inherit pkgs;}}";
+  services.displayManager.sddm.theme = "${import ../../customnix/sddm-theme.nix {inherit pkgs;}}";
 
   programs.hyprland = {
     enable = true;
@@ -94,9 +76,6 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-hyprland];
 
   services.flatpak.enable = true;
-
-  # Configure console keymap
-  console.keyMap = "uk";
 
   # Enable CUPS to print documents.
   services.printing.enable = false;
@@ -139,26 +118,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  programs.zsh.enable = true;
-
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.hitec = {
-    isNormalUser = true;
-    description = "Hitec Splash";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
-    shell = pkgs.zsh;
-  };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "hitec" = import ./laptop-home.nix;
+      "hitec" = import ./home/home.nix;
     };
   };
 
@@ -167,13 +133,6 @@
   # Install firefox.
   programs.firefox.enable = true;
   programs.steam.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  # Allow random installs
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -187,29 +146,12 @@
     dejavu_fonts
   ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    todo-cli = pkgs.callPackage ../customnix/todo-cli.nix {};
-  };
-
   environment.systemPackages = with pkgs; [
     mullvad-browser
-    vim
-    fastfetch
-    wget
     vscode
-    rustup
-    gcc # needed to rust to compile
-    python313
-    ripgrep
-    bat
-    fzf
-    htop
-    jaq
     libreoffice
     hunspell
     hunspellDicts.en_GB-ise
-    unzip
-    zip
     signal-desktop
     bitwarden-desktop
     dolphin-emu
@@ -219,7 +161,6 @@
     font-awesome
     calibre
     wl-clipboard
-    luajit
     jetbrains.rust-rover
     thunderbird
     pamixer
@@ -247,11 +188,8 @@
     qemu
     hypridle
     brave
-    alejandra
-    nixd
     brightnessctl
     monero-gui
-    monero-cli
     qbittorrent
     (inputs.cbr-to-cbz.packages.${pkgs.system}.default)
     komga
@@ -259,8 +197,6 @@
     grim
     vlc
     kdePackages.kleopatra
-    mask
-    todo-cli
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
