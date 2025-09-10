@@ -10,6 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../common/base/default.nix
+    ../../common/base/desktop/fonts.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -120,6 +121,8 @@
 
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
+  virtualisation.docker.enable = true;
+  users.users.hitec.extraGroups = ["networkmanager" "wheel" "docker"];
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
@@ -134,17 +137,22 @@
   programs.firefox.enable = true;
   programs.steam.enable = true;
 
+  # services.spotifyd.enable = true;
+  # services.spotifyd.settings = {
+  #   global = {
+  #     device_name = "hitec_music";
+  #     device_type = "computer";
+  #     zeroconf_port = 5354;
+  #   };
+  # };
+
+  networking.firewall.allowedTCPPorts = [5354];
+  networking.firewall.allowedUDPPorts = [5353];
+
+  networking.extraHosts = "0.0.0.0 apresolve.spotify.com";
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.hack
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-emoji
-    liberation_ttf
-    dejavu_fonts
-  ];
 
   environment.systemPackages = with pkgs; [
     mullvad-browser
@@ -218,8 +226,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  # networking.firewall.allowedTCPPorts = [5972];
+  # networking.firewall.allowedUDPPorts = [5353];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

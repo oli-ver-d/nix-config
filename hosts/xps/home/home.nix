@@ -5,6 +5,7 @@
 }: {
   imports = [
     ../../../common/home/default.nix
+    ../../../common/home/desktop/kitty.nix
   ];
 
   home.packages = with pkgs; [
@@ -62,20 +63,6 @@
     cda() { cd "$(active-cd)"; }
   '';
 
-  programs.kitty = {
-    enable = true;
-    font.name = "Hack Nerd Font";
-    settings = {
-      font_size = "12.0";
-      window_padding_width = "10.0 10.0";
-      margin_width = "0.0";
-      background_opacity = "0.5";
-      allow_remote_control = "yes";
-      dynamic_background_opacity = "yes";
-    };
-    themeFile = "tokyo_night_night";
-  };
-
   programs.zsh = {
     shellAliases = {
       jq = "jaq";
@@ -99,4 +86,13 @@
   };
 
   programs.obsidian.enable = true;
+
+  services.spotifyd.enable = true;
+  services.spotifyd.settings = {
+    global = {
+      device_name = "hitec_music";
+      device_type = "computer";
+      zeroconf_port = 5354;
+    };
+  };
 }
