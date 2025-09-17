@@ -1,7 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    # Python LSPs
     ruff
     pyright
+    # Markdown LSP
+    marksman
+
+    # lazygit to integrate
+    lazygit
   ];
   programs.helix = {
     enable = true;
@@ -66,6 +72,7 @@
         };
         normal = {
           C-s = ":write";
+          C-g = [":write-all" ":new" ":insert-output lazygit" ":buffer-close!" ":redraw" ":reload-all"];
         };
       };
     };
