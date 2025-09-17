@@ -65,6 +65,7 @@
     },
     "clock": {
       "format": "  {:%a %e %b %H:%M}",
+      "timezone": "Europe/London",
       "tooltip-format": "<tt>{calendar}</tt>",
       "calendar": {
         "mode": "month",

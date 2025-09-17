@@ -38,3 +38,11 @@ nix-store --optimise
 sudo nix-collect-garbage -d
 nix-collect-garbage
 ~~~
+
+## list
+
+> Lists the systems current nixos generations that are available to boot into!
+
+~~~zsh
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+~~~
