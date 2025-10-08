@@ -44,16 +44,11 @@
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.settings = {
     General = {
-      DefaultSession = "hyprland.desktop";
+      DefaultSession = "niri.desktop";
     };
   };
 
   services.displayManager.sddm.theme = "${import ../../customnix/sddm-theme.nix {inherit pkgs;}}";
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";

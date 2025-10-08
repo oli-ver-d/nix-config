@@ -1,12 +1,68 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
     ../../../common/home/default.nix
     ../../../common/home/desktop/kitty.nix
+    inputs.niri.homeModules.niri
   ];
+
+  programs.niri = {
+    enable = true;
+    settings = {
+      input = {
+        keyboard = {
+          xkb.layout = "gb";
+          numlock = true;
+        };
+        touchpad = {
+          tap = true;
+          natural-scroll = true;
+        };
+      };
+
+      layout = {
+        always-center-single-column = true;
+        center-focused-column = "on-overflow";
+        preset-column-widths = [
+          {proportion = 1.0 / 3.0;}
+          {proportion = 1.0 / 2.0;}
+          {proportion = 2.0 / 3.0;}
+        ];
+        default-column-width = {proportion = 0.5;};
+        focus-ring = {
+          enable = true;
+          width = 4;
+          active.color = "#7fc8ff";
+          inactive.color = "#505050";
+        };
+      };
+
+      spawn-at-startup = [
+        {argv = ["waybar"];}
+      ];
+
+      binds = with config.lib.niri.actions; let
+        sh = spawn "sh" "-c";
+      in {
+        "Mod+Shift+Slash".action = show-hotkey-overlay;
+        "Mod+T".action = spawn "kitty";
+        "Mod+D".action = spawn "~/.config/rofi/launcher.sh";
+        "Super+Alt+L".action = spawn "hyprlock";
+        "XF86AudioRaiseVolume" = {
+          action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          allow-when-locked = true;
+        };
+        "XF86AudioLowerVolume" = {
+          action = sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+          allow-when-locked = true;
+        };
+      };
+    };
+  };
 
   home.packages = with pkgs; [
     wlr-randr
@@ -30,6 +86,8 @@
       }
       + "/packed";
   };
+
+  programs.alacritty.enable = true;
 
   # theming
   qt.enable = true;
