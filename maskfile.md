@@ -2,7 +2,7 @@
 
 ## build [system]
 
-> Builds the system and switches to the new config (default xps)
+> Builds the system and switches to the new config (default xps). Options: wsl, xps
 
 ~~~zsh
 if [[ -z "$system" ]]; then

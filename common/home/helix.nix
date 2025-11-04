@@ -73,6 +73,7 @@
         normal = {
           C-s = ":write";
           C-g = [":write-all" ":new" ":insert-output lazygit" ":buffer-close!" ":redraw" ":reload-all"];
+          D = "@xypkj"; # Copy current cursor line below
         };
       };
     };
