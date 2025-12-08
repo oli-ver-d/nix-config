@@ -11,7 +11,7 @@
   home.packages = with pkgs; [
     wlr-randr
     wayland-utils
-    rofi-wayland
+    rofi
     vbam
   ];
 
@@ -88,6 +88,7 @@
   programs.obsidian.enable = true;
 
   services.spotifyd.enable = true;
+  services.spotifyd.package = pkgs.callPackage ../../../customnix/spotifyd.nix {};
   services.spotifyd.settings = {
     global = {
       device_name = "hitec_music";

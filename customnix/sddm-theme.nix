@@ -8,8 +8,8 @@ pkgs.stdenv.mkDerivation {
     sha256 = "sha256-gIJ8aD3Olpg/3oRzk4Ifz9saE4N4rRFZgD1o+lnuoag=";
   };
   installPhase = ''
-    mkdir -p $out
-    cp -R ./where_is_my_sddm_theme_qt5/* $out/
-    cp ./where_is_my_sddm_theme_qt5/example_configs/classic_nocursor.conf $out/theme.conf
+    mkdir -p $out/share/sddm/themes/mytheme
+    cp -R ./where_is_my_sddm_theme_qt5/* $out/share/sddm/themes/mytheme/
+    cp ./where_is_my_sddm_theme_qt5/example_configs/classic_nocursor.conf $out/share/sddm/themes/mytheme/theme.conf
   '';
 }

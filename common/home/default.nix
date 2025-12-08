@@ -42,8 +42,12 @@
 
   programs.git = {
     enable = true;
-    userEmail = "oliver.d.333@proton.me";
-    userName = "Oliver Dennis";
+    settings = {
+      user = {
+        email = "oliver.d.333@proton.me";
+        name = "Oliver Dennis";
+      };
+    };
   };
 
   programs.zoxide = {
@@ -58,5 +62,4 @@
     extraLuaPackages = ps: [ps.magick];
     extraPackages = [pkgs.imagemagick];
   };
-
 }

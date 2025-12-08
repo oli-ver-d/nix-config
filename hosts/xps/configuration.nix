@@ -48,7 +48,15 @@
     };
   };
 
-  services.displayManager.sddm.theme = "${import ../../customnix/sddm-theme.nix {inherit pkgs;}}";
+  # let
+  #   my-sddm-theme = import ../../customnix/sddm-theme.nix { inherit pkgs;};
+  # in {
+  #   environment.systemPackages = [
+  #     my-sddm-theme
+  #   ];
+  # }
+  # services.displayManager.sddm.theme = "${import ../../customnix/sddm-theme.nix {inherit pkgs;}}";
+  services.displayManager.sddm.theme = "mytheme";
 
   programs.hyprland = {
     enable = true;
@@ -151,6 +159,8 @@
 
   networking.extraHosts = "0.0.0.0 apresolve.spotify.com";
 
+  networking.enableIPv6 = false;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
@@ -205,6 +215,7 @@
     grim
     vlc
     kdePackages.kleopatra
+    (callPackage ../../customnix/sddm-theme.nix {inherit pkgs;})
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
