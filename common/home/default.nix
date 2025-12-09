@@ -47,6 +47,7 @@
         email = "oliver.d.333@proton.me";
         name = "Oliver Dennis";
       };
+      push.autoSetupRemote = true;
     };
   };
 
