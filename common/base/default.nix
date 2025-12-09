@@ -70,5 +70,6 @@
     monero-cli
     todo-cli
     mask
+    uv
   ];
 }

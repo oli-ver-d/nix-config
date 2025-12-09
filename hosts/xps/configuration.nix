@@ -47,15 +47,7 @@
       DefaultSession = "hyprland.desktop";
     };
   };
-
-  # let
-  #   my-sddm-theme = import ../../customnix/sddm-theme.nix { inherit pkgs;};
-  # in {
-  #   environment.systemPackages = [
-  #     my-sddm-theme
-  #   ];
-  # }
-  # services.displayManager.sddm.theme = "${import ../../customnix/sddm-theme.nix {inherit pkgs;}}";
+  # services.displayManager.sddm.extraPackages = pkgs.lib.mkForce [pkgs.libsForQt5.qt5.qtgraphicaleffects]; # Needed for theme?
   services.displayManager.sddm.theme = "mytheme";
 
   programs.hyprland = {
@@ -174,7 +166,6 @@
     bitwarden-desktop
     dolphin-emu
     tor-browser
-    spotify
     zotero
     font-awesome
     calibre
@@ -197,7 +188,6 @@
     kdePackages.qtsvg
     kdePackages.dolphin
     libsForQt5.qt5.qtquickcontrols2
-    libsForQt5.qt5.qtgraphicaleffects
     pavucontrol
     playerctl
     xorg.xcursorthemes
@@ -215,6 +205,7 @@
     grim
     vlc
     kdePackages.kleopatra
+    spotify-player
     (callPackage ../../customnix/sddm-theme.nix {inherit pkgs;})
   ];
 
