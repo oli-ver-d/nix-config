@@ -66,7 +66,7 @@
   programs.zsh = {
     shellAliases = {
       jq = "jaq";
-      fzv = "hx \$(fzf)";
+      fzv = "hx \$(fzf --preview='bat --color=always {}')";
       shutdownh = "sudo shutdown -h now";
       rebooth = "sudo reboot -h now";
       tb = "~/dotfiles/scripts/kitty_background.sh";

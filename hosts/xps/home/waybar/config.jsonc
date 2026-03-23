@@ -37,6 +37,7 @@
         "(.*) - Google Chrome": "  $1",
         "(.*) - Visual Studio Code": "󰨞  $1",
         "(.*) - Spotify": "󰓇  $1",
+        "spotify_player": "󰓇 Spotify TUI style",
         "(.*) - kitty": "  $1",
         "(nvim)(?: (.*))?": "  $1 $2",
         "(hx)(?: (.*))?": "   $1 $2",

@@ -40,15 +40,18 @@
   # Enable the X11 windowing system.
   qt.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.settings = {
-    General = {
-      DefaultSession = "hyprland.desktop";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    theme = "Elegant";
+    settings = {
+      General = {
+        DefaultSession = "hyprland.desktop";
+      };
     };
   };
   # services.displayManager.sddm.extraPackages = pkgs.lib.mkForce [pkgs.libsForQt5.qt5.qtgraphicaleffects]; # Needed for theme?
-  services.displayManager.sddm.theme = "mytheme";
+  # services.displayManager.sddm.theme = "mytheme";
 
   programs.hyprland = {
     enable = true;
@@ -206,7 +209,8 @@
     vlc
     kdePackages.kleopatra
     spotify-player
-    (callPackage ../../customnix/sddm-theme.nix {inherit pkgs;})
+    # (callPackage ../../customnix/sddm-theme.nix {inherit pkgs;})
+    elegant-sddm
   ];
 
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];

@@ -5,6 +5,10 @@
     pyright
     # Markdown LSP
     marksman
+    # Go LSP
+    gopls
+    golangci-lint
+    golangci-lint-langserver
 
     # lazygit to integrate
     lazygit
@@ -39,6 +43,10 @@
         pylyzer = {
           command = "pylyzer";
           args = ["--server"];
+        };
+        gopls = {
+          command = "gopls";
+          args = ["serve"];
         };
       };
     };
