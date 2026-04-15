@@ -49,6 +49,7 @@
       };
       push.autoSetupRemote = true;
     };
+    signing.format = "openpgp";
   };
 
   programs.zoxide = {

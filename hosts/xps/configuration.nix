@@ -193,7 +193,7 @@
     libsForQt5.qt5.qtquickcontrols2
     pavucontrol
     playerctl
-    xorg.xcursorthemes
+    xcursorthemes
     hyprlock
     quickemu
     qemu
