@@ -82,7 +82,6 @@
       export PATH=$PATH:/home/hitec/.cargo/bin
       nvim() { kitty @ set-spacing padding=0; command nvim "$@"; kitty @ set-spacing padding=10; }
       hx() { kitty @ set-spacing padding=0; command hx "$@"; kitty @ set-spacing padding=10; }
-      todo-cli ls
     '';
   };
 
