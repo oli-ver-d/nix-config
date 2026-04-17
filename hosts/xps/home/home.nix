@@ -6,6 +6,7 @@
   imports = [
     ../../../common/home/default.nix
     ../../../common/home/desktop/kitty.nix
+    ../../../common/home/desktop/noctalia.nix
   ];
 
   home.packages = with pkgs; [
@@ -97,8 +98,6 @@
       }
     '';
   };
-
-  programs.obsidian.enable = true;
 
   services.spotifyd.enable = true;
   services.spotifyd.package = pkgs.callPackage ../../../customnix/spotifyd.nix {};
