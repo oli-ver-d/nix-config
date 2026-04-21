@@ -1,0 +1,101 @@
+{
+  self,
+  inputs,
+  ...
+}: {
+  perSystem = {
+    pkgs,
+    lib,
+    ...
+  }: {
+    packages.myHelix = inputs.wrapper-modules.wrappers.helix.wrap {
+      inherit pkgs;
+      extraPackages = with pkgs; [
+        # Nix LSP
+        nixd
+        # Python LSPs
+        ruff
+        pyright
+        # Markdown LSP
+        marksman
+        # Go LSP
+        gopls
+        golangci-lint
+        golangci-lint-langserver
+
+        # lazygit to integrate
+        lazygit
+      ];
+      languages = {
+        language = [
+          {
+            name = "nix";
+            auto-format = true;
+            file-types = ["nix"];
+            language-servers = ["nixd"];
+            formatter = {
+              command = "${lib.getExe pkgs.alejandra}";
+            };
+          }
+          {
+            name = "python";
+            file-types = ["py"];
+            language-servers = ["ruff" "pyright"];
+          }
+        ];
+        language-server = {
+          pyright.config.python.analysis = {
+            typeCheckingMode = "basic";
+          };
+          ruff = {
+            command = "ruff";
+            args = ["server"];
+          };
+          pylyzer = {
+            command = "pylyzer";
+            args = ["--server"];
+          };
+          gopls = {
+            command = "gopls";
+            args = ["serve"];
+          };
+        };
+      };
+
+      settings = {
+        theme = "tokyonight";
+        editor = {
+          line-number = "relative";
+          mouse = false;
+          shell = ["zsh" "-c"];
+          bufferline = "multiple";
+          inline-diagnostics = {
+            cursor-line = "hint";
+            other-lines = "hint";
+          };
+          cursor-shape.insert = "underline";
+          lsp.display-inlay-hints = true;
+        };
+        keys = {
+          insert = {
+            up = "no_op";
+            down = "no_op";
+            left = "no_op";
+            right = "no_op";
+            pageup = "no_op";
+            pagedown = "no_op";
+            home = "no_op";
+            end = "no_op";
+            C-s = ":write";
+            A-j = "normal_mode";
+          };
+          normal = {
+            C-s = ":write";
+            C-g = [":write-all" ":new" ":insert-output lazygit" ":buffer-close!" ":redraw" ":reload-all"];
+            D = "@xypkj"; # Copy current cursor line below
+          };
+        };
+      };
+    };
+  };
+}
