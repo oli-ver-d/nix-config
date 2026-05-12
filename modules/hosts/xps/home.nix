@@ -9,14 +9,18 @@
     pkgs = import inputs.nixpkgs {system = "x86_64-linux";};
     modules = [
       self.homeModules.hitecModule
-      self.homeModules.helix
-      self.homeModules.kitty
     ];
   };
 
   # This is your home.nix, your module where you configure home-manager
   # It's imported both in standalone configuration above, and in your nixos configuration
   flake.homeModules.hitecModule = {pkgs, ...}: {
+    imports = [
+      self.homeModules.helix
+      self.homeModules.kitty
+      self.homeModules.noctalia
+      self.homeModules.zsh
+    ];
     home.username = "hitec";
     home.homeDirectory = "/home/hitec";
 
@@ -61,12 +65,6 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
       options = ["--cmd cd"];
-    };
-
-    programs.neovim = {
-      enable = true;
-      extraLuaPackages = ps: [ps.magick];
-      extraPackages = [pkgs.imagemagick];
     };
 
     # theming

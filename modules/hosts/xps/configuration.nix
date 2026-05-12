@@ -177,7 +177,7 @@
     #   };
     # };
     home-manager.users.hitec = self.homeModules.hitecModule;
-    home-manager.backupFileExtension = "backup";
+    home-manager.backupFileExtension = "backup2";
 
     # Install firefox.
     programs.firefox.enable = true;
